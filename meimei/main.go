@@ -10,6 +10,7 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 	fmt.Print(string(myoji[rand.Int()%len(myoji)]))
 	fmt.Print(" ")
+	rand.Seed(time.Now().UnixNano())
 	fmt.Println(string(name[rand.Int()%len(name)]))
 }
 
