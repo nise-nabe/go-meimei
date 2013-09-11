@@ -4,14 +4,23 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
+	"flag"
+)
+
+var (
+	count *int = flag.Int("count", 1, "count of iteration")
 )
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
-	fmt.Print(string(myoji[rand.Int()%len(myoji)]))
-	fmt.Print(" ")
-	rand.Seed(time.Now().UnixNano())
-	fmt.Println(string(name[rand.Int()%len(name)]))
+	flag.Parse()
+
+	for i := 0; i < *count; i++ {
+		rand.Seed(time.Now().UnixNano())
+		fmt.Print(string(myoji[rand.Int()%len(myoji)]))
+		fmt.Print(" ")
+		rand.Seed(time.Now().UnixNano())
+		fmt.Println(string(name[rand.Int()%len(name)]))
+	}
 }
 
 var myoji = []string{
